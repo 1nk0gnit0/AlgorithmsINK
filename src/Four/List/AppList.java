@@ -1,11 +1,11 @@
-package Four;
+package Four.List;
 
 public class AppList {
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
-        list.inseert("One", 22);
-        list.inseert("Two", 27);
-        list.inseert("Three", 18);
+        list.insert("One", 22);
+        list.insert("Two", 27);
+        list.insert("Three", 18);
 
         list.display();
         System.out.println();

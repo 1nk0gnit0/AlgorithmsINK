@@ -1,4 +1,4 @@
-package Four.List;
+package Four.doubleList;
 
 public class Link {
     public String name;

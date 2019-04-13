@@ -1,4 +1,4 @@
-package Four;
+package Four.List;
 
 public class Link {
     public String name;
