@@ -1,0 +1,33 @@
+package Three.Stack;
+
+public class Stack {
+    private char[] stack;
+    private int top;
+    private int maxsize;
+
+    public Stack(int size) {
+        this.maxsize = size;
+        this.stack = new char[maxsize];
+        this.top = -1;
+    }
+
+    public void  push(char i){
+        stack[++top] = i;
+    }
+
+    public boolean isEmpty(){
+        return (top == -1);
+    }
+
+    public boolean isFull(){
+        return (top == maxsize -1);
+    }
+
+    public char pop(){
+        return stack[top--];
+    }
+
+    public char peek(){
+        return stack[top];
+    }
+}
