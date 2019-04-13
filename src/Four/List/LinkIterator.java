@@ -25,15 +25,44 @@ public class LinkIterator {
     }
 
     public void insertBefore(String name, int age){
-        Link newLink = new Link()
+        Link newLink = new Link(name, age);
+        if (prev == null){
+            newLink.next = list.getFirst();
+            list.setFirst(newLink);
+            reset();
+        }else{
+            newLink.next = prev.next;
+            prev.next = newLink;
+            current = newLink;
+        }
     }
 
-    public void insertAfter(){
-
+    public void insertAfter(String name, int age){
+        Link newLink = new Link(name, age);
+        if (list.isEmpty()){
+            list.setFirst(newLink);
+            current = newLink;
+        }else{
+            newLink.next = current.next;
+            current.next = newLink;
+            nextLink();
+        }
     }
 
     public String deleteCurrent(){
-        return null;
+        String name = current.name;
+        if (prev == null){
+            list.setFirst(current.next);
+            reset();
+        }else{
+            prev.next = current.next;
+            if (atEnd()){
+                reset();
+            }else{
+                current = current.next;
+            }
+        }
+        return name;
     }
 
     public Link getCurrent( ) {
