@@ -9,7 +9,11 @@ public class AppList {
 
         list.display();
         System.out.println();
-        if (!list.isEmpty()) list.delete();
+        list.delete("Two");
+
+        System.out.println(list.find("One").name);
+
+        System.out.println();
         list.display();
     }
 }

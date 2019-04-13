@@ -31,6 +31,32 @@ public class LinkedList {
         return (first == null);
     }
 
+    public Link find (String name){
+        Link current = first;
+        while (current.name != name) {
+            if (current.name == null) return null;
+            else
+                current = current.next;
+        }
+        return current;
+    }
+
+    public Link delete(String name){
+        Link current = first;
+        Link prev = first;
+        while (current.name != name){
+            if (current.name == null) return null;
+            else {
+                prev = current;
+            current = current.next;
+            }
+        }
+        if (current == first) first = first.next;
+        else
+            prev.next = current.next;
+        return current;
+    }
+
     public Link getFirst(){
         return first;
     }
