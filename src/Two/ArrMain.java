@@ -1,4 +1,4 @@
-package two;
+package Two;
 
 public class ArrMain {
     public static void main(String[] args) {

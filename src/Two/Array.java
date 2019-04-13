@@ -1,4 +1,4 @@
-package two;
+package Two;
 
 public class Array {
     private int[] arr;
