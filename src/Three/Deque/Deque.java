@@ -8,10 +8,7 @@ public class Deque {
     private int items;
 
     public Deque(int size) {
-        this.maxSize = size;
-        this.deque = new int[maxSize];
-        this.front = 0;
-        this.rear= 0;
+        this.deque = new int[this.maxSize = size];
         this.items = 0;
     }
 
@@ -19,33 +16,28 @@ public class Deque {
         return (items == 0);
     }
 
-    public void insertLeft(int item){
-        if(isEmpty()) {
-            deque[rear] = item;
-            items++;
-        }else {
-            for (int i = items-1; i >= 0; i--) {
-                    deque[i+1] = deque[i];
-                }
-            deque[rear] = item;
-            items++;
-            }
-        }
-
-
-    public void insertRight(int i){
-        deque[items] = i;
+    public void insertRight(int i) {
+        deque[front] = i;
+        if (--front < 0) front = maxSize - 1;
         items++;
     }
 
-    public int removeLeft(){
-        int temp = deque[front++];
-        if (front == maxSize) front = 0;
-        items--;
-        return temp;
+    public void insertLeft(int i){
+        if (++rear == maxSize) rear = 0;
+        deque[rear] = i;
+        items++;
     }
 
     public int removeRight(){
-        return deque[items--];
+        if (++front == maxSize) front = 0;
+        items--;
+        return deque[front];
+    }
+
+    public int removeLeft(){
+        int temp = deque[rear];
+        if (--rear < 0) rear = maxSize - 1;
+        items--;
+        return temp;
     }
 }
