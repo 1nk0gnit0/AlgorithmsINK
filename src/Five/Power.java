@@ -2,7 +2,10 @@ package Five;
 
 public class Power {
     public static void main(String[]args){
-        System.out.println(power(3,6));
+        int x = 2;
+        int y = 4;
+        System.out.print(x + "^" + y);
+        System.out.println("=" + power(x,y));
     }
 
     public static int power(int x, int y){
