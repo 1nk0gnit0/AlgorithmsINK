@@ -1,17 +1,44 @@
 package Five.Backpack;
 
 
-public class Items {
-    public Link first;
-    public Items() {
-        this.first = null;
+public class Item {
+
+    private String name;
+    private int weigth;
+    private int price;
+
+    public Item(String name, int weigth, int price) {
+        this.name = name;
+        this.weigth = weigth;
+        this.price = price;
     }
 
+    public String getName() {
+        return name;
+    }
 
-    public void insert(String name, int weight) {
-        Link items = new Link(name, weight);
-        items.next = first;
-        first = items;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getWeigth() {
+        return weigth;
+    }
+
+    public void setWeigth(int weigth) {
+        this.weigth = weigth;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    @Override
+    public String toString() {
+       return "\n" + name + ": масса=" + weigth + ", ценность=" + price;
     }
 }
-
