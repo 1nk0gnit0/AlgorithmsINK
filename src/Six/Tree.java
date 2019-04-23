@@ -118,4 +118,44 @@ public class Tree {
         }
         return successor;
     }
+
+    public void displayTree( ) {
+        Stack stack = new Stack(100);
+        stack.push(root);
+        int nBlanks = 32;
+        boolean isRowEmpty = false;
+
+        while (!isRowEmpty) {
+            Stack localStack = new Stack(100);
+            isRowEmpty = true;
+            for(int i=0;i<nBlanks;i++){
+                System.out.print(" ");
+            }
+            while (!stack.isEmpty()) {
+                Node temp = stack.pop();
+                if (temp != null){
+                    temp.display();
+                    localStack.push(temp.leftChild);
+                    localStack.push(temp.rightChild);
+                    if(temp.leftChild != null || temp.rightChild != null){
+                        isRowEmpty = false;
+                    }
+                }else{
+                    System.out.print("--");
+                    localStack.push(null);
+                    localStack.push(null);
+                }
+                for(int j=0; j < nBlanks * 2 - 2; j++)
+                    System.out.print(' ');
+            }
+            System.out.println(" ");
+            nBlanks = nBlanks / 2;
+            while (!localStack.isEmpty()) {
+                stack.push(localStack.pop());
+            }
+            System.out.println("...............................................");
+        }
+    }
+
 }
+

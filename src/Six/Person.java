@@ -5,12 +5,17 @@ public class Person {
     public int id;
     public int age;
 
-    public Person() {
-    }
 
     public Person(String name, int id, int age) {
         this.name = name;
         this.id = id;
         this.age = age;
+    }
+
+    public Person(int id) {
+        this.id = id;
+    }
+
+    public Person() {
     }
 }
