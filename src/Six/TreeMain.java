@@ -9,15 +9,14 @@ public class TreeMain {
     public static void main(String[] args) throws IOException{
         int value;
         int n = 0;
-        Tree tree = new Tree();
         Random random = new Random();
 
-        while(n < 11){
+        Tree tree = new Tree();
+        tree.insert(new Person(random.nextInt(200)-100));
+        while(n < 15){
             int rnd = random.nextInt(200)-100;
-            if(n != 0) {
-                while (tree.find(rnd) != null) {
-                    rnd = random.nextInt(200) - 100;
-                }
+            while (tree.find(rnd) != null) {
+                rnd = random.nextInt(200) - 100;
             }
         tree.insert(new Person(rnd));
         n++;

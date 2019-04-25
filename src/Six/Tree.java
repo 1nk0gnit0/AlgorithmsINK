@@ -119,48 +119,11 @@ public class Tree {
         return successor;
     }
 
-    /*public void displayTree(){
-        Stack stack = new Stack();
-        stack.push(root);
-        int nBlanks = 100;
-        boolean isRowEmpty = false;
-
-        while (!isRowEmpty) {
-            Stack localStack = new Stack();
-            isRowEmpty = true;
-            for(int i=0;i<nBlanks;i++){
-                System.out.print("+");
-            }
-            while (!stack.isEmpty()) {
-                Node temp = stack.pop();
-                if (temp != null){
-                    temp.display();
-                    localStack.push(temp.leftChild);
-                    localStack.push(temp.rightChild);
-                    if(temp.leftChild != null || temp.rightChild != null){
-                        isRowEmpty = false;
-                    }
-                }else{
-                    System.out.print("--");
-                    localStack.push(null);
-                }
-                for(int j=0; j < nBlanks * 2 - 2; j++)
-                    System.out.print(' ');
-            }
-            System.out.println(" ");
-            nBlanks = nBlanks / 2;
-            while (!localStack.isEmpty()) {
-                stack.push(localStack.pop());
-            }
-            System.out.println("......................................................");
-        }
-    }*/
-
     public void displayTree()
     {
-        Stack globalStack = new Stack(1000);
-        globalStack.push(root);
-        int nBlanks = 32;
+        Stack stack = new Stack(1000);
+        stack.push(root);
+        int nBlanks = 64;
         boolean isRowEmpty = false;
 
         while(isRowEmpty==false)
@@ -169,9 +132,8 @@ public class Tree {
             isRowEmpty = true;
             for(int j=0; j<nBlanks; j++)
                 System.out.print(" ");
-            while(globalStack.isEmpty()==false)
-            {
-                Node temp = globalStack.pop();
+            while(stack.isEmpty()==false){
+                Node temp = stack.pop();
                 if(temp != null){
                     System.out.print(temp.person.id);
                     localStack.push(temp.leftChild);
@@ -190,9 +152,17 @@ public class Tree {
             System.out.println(" ");
             nBlanks /= 2;
             while(localStack.isEmpty()==false)
-                globalStack.push( localStack.pop() );
+                stack.push( localStack.pop());
         }
-        System.out.println("......................................................");
+        System.out.println(".................................................................................................................................");
     }
+
+
+    public int height(Node node){
+        if (node == null) return 0;
+        else return 1 + Math.max(height(node.leftChild), height(node.rightChild));
+        }
+
+
 }
 

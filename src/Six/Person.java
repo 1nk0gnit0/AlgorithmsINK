@@ -1,6 +1,6 @@
 package Six;
 
-public class Person {
+public class Person{
     public String name;
     public int id;
     public int age;
