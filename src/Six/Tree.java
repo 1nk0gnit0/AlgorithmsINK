@@ -119,17 +119,17 @@ public class Tree {
         return successor;
     }
 
-    public void displayTree( ) {
-        Stack stack = new Stack(100);
+    /*public void displayTree(){
+        Stack stack = new Stack();
         stack.push(root);
-        int nBlanks = 32;
+        int nBlanks = 100;
         boolean isRowEmpty = false;
 
         while (!isRowEmpty) {
-            Stack localStack = new Stack(100);
+            Stack localStack = new Stack();
             isRowEmpty = true;
             for(int i=0;i<nBlanks;i++){
-                System.out.print(" ");
+                System.out.print("+");
             }
             while (!stack.isEmpty()) {
                 Node temp = stack.pop();
@@ -143,7 +143,6 @@ public class Tree {
                 }else{
                     System.out.print("--");
                     localStack.push(null);
-                    localStack.push(null);
                 }
                 for(int j=0; j < nBlanks * 2 - 2; j++)
                     System.out.print(' ');
@@ -153,9 +152,47 @@ public class Tree {
             while (!localStack.isEmpty()) {
                 stack.push(localStack.pop());
             }
-            System.out.println("...............................................");
+            System.out.println("......................................................");
         }
-    }
+    }*/
 
+    public void displayTree()
+    {
+        Stack globalStack = new Stack(1000);
+        globalStack.push(root);
+        int nBlanks = 32;
+        boolean isRowEmpty = false;
+
+        while(isRowEmpty==false)
+        {
+            Stack localStack = new Stack(1000);
+            isRowEmpty = true;
+            for(int j=0; j<nBlanks; j++)
+                System.out.print(" ");
+            while(globalStack.isEmpty()==false)
+            {
+                Node temp = globalStack.pop();
+                if(temp != null){
+                    System.out.print(temp.person.id);
+                    localStack.push(temp.leftChild);
+                    localStack.push(temp.rightChild);
+                    if(temp.leftChild != null ||
+                            temp.rightChild != null)
+                        isRowEmpty = false;
+                }else{
+                    System.out.print("--");
+                    localStack.push(null);
+                    localStack.push(null);
+                }
+                for(int j=0; j<nBlanks*2-2; j++)
+                    System.out.print(" ");
+            }
+            System.out.println(" ");
+            nBlanks /= 2;
+            while(localStack.isEmpty()==false)
+                globalStack.push( localStack.pop() );
+        }
+        System.out.println("......................................................");
+    }
 }
 

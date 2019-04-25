@@ -3,18 +3,28 @@ package Six;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Random;
 
 public class TreeMain {
     public static void main(String[] args) throws IOException{
         int value;
+        int n = 0;
         Tree tree = new Tree();
-        tree.insert(new Person(22));
-        tree.insert(new Person(21));
-        tree.insert(new Person(23));
-        tree.insert(new Person(65));
-        tree.insert(new Person(43));
-        tree.insert(new Person(11));
-        tree.insert(new Person(15));
+        Random random = new Random();
+
+        while(n < 11){
+            int rnd = random.nextInt(200)-100;
+            if(n != 0) {
+                while (tree.find(rnd) != null) {
+                    rnd = random.nextInt(200) - 100;
+                }
+            }
+        tree.insert(new Person(rnd));
+        n++;
+        }
+
+        tree.displayTree();
+
 
         while(true){
             System.out.print("Enter first letter of show, ");
@@ -38,6 +48,11 @@ public class TreeMain {
                     }
                     found.display();
                     System.out.print("\n");
+                    break;
+                case 'd':
+                    System.out.print("Enter value to delete: ");
+                    value = getInt();
+                    tree.delete(value);
                     break;
             }
         }
