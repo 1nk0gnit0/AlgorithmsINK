@@ -30,9 +30,5 @@ public class GrafDistApp {
         graph.addEdge(9, 10, 1); // J - K
 
         graph.bfsPath('A','K');
-
-        /*System.out.println("Кратчайший путь: ");
-        graph.path();
-        System.out.println();*/
     }
 }
