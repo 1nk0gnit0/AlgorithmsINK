@@ -23,8 +23,9 @@ public class Graph {
         pathStack = new Stack(maxVertex);
     }
 
-    public void addEdge(int start, int end, int weight){
-        matrix[start][end] = weight;
+    public void addEdge(int start, int end){
+        matrix[start][end] = 1;
+        matrix[end][start] = 1;
     }
 
     public void addVertex(char label) {
