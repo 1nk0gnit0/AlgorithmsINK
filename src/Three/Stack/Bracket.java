@@ -23,7 +23,7 @@ public class Bracket {
                 case '}':
                 case ')':
                     if (!st.isEmpty()){
-                        char chr = st.pop();
+                        int chr = st.pop();
                         if ((ch == '}' && chr != '{') || (ch == ']' && chr != '[') || (ch == ')' && chr != '(')){
                             System.out.println("Ошибка в " + ch + " в " + (i+1));
                         }

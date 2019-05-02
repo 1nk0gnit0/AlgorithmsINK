@@ -17,7 +17,7 @@ public class stringStack {
             st.push(ch);
         }
         while (!st.isEmpty()){
-            char n = st.pop();
+            int n = st.pop();
             System.out.print(n);
         }
         System.out.println();

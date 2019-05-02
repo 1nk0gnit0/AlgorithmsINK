@@ -1,17 +1,17 @@
 package Three.Stack;
 
 public class Stack {
-    private char[] stack;
+    private int[] stack;
     private int top;
     private int maxsize;
 
     public Stack(int size) {
         this.maxsize = size;
-        this.stack = new char[maxsize];
+        this.stack = new int[maxsize];
         this.top = -1;
     }
 
-    public void  push(char i){
+    public void  push(int i){
         stack[++top] = i;
     }
 
@@ -23,11 +23,12 @@ public class Stack {
         return (top == maxsize -1);
     }
 
-    public char pop(){
+    public int pop(){
         return stack[top--];
     }
 
-    public char peek(){
+    public int peek(){
         return stack[top];
     }
+
 }
